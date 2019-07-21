@@ -1,0 +1,19 @@
+{
+  "name": "burger",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jkinney123/Burger.git"
+  },
+  "author": "Joe KInney",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jkinney123/Burger/issues"
+  },
+  "homepage": "https://github.com/jkinney123/Burger#readme"
+}
