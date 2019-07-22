@@ -44,11 +44,11 @@
         <ul>
           {{#each burgers}}
           {{#unless Devoured}}
-     
+            <li>
             <span>{{ this.id}} - {{this.burger_name}}</span>
             <button type="button" class="eatburger btn" id="eatbutton" data-id="{{this.id}}"
               data-newDevoured="{{Devour}}"><span class="fa"></span></button>
-        
+          </li>
 
           {{/unless}}
           {{/each}}
@@ -68,11 +68,12 @@
         <ul>
           {{#each burgers}}
           {{#if Devoured}}
+          <li>
           <span>{{ this.id}} - {{this.burger_name}}</span>
            <button type="button" class="trashburger btn" id="trashbutton" data-id="{{this.id}}"
               data-newDevoured="{{Devour}}"><span class="fa"></span></button>
-
-          {{/unless}}
+          </li>
+          {{/if}}
           {{/each}}
         </ul>
 
