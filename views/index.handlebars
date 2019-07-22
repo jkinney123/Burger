@@ -3,7 +3,13 @@
 <ul>
   {{#each burgers}}
     {{#unless Devoured}}
-      {{> burgers/burger-block}}
+    <li>
+        {{> id}}. {{name}}
+    <form action = "/{{id}}?_method=PUT" method="POST">
+    <input type="hidden" name="Devoured" value="false">
+    </form>
+    </li>
+      
     {{/unless}}
   {{/each}}
 </ul>
@@ -13,16 +19,16 @@
 <ul>
   {{#each burgers}}
     {{#if Devoured}}
-      <div>{{id}}. {{name}}</div>
+      <li></li>{{id}}. {{name}}</li>
     {{/if}}
   {{/each}}
 </ul>
 
-<h2>What burger would you like to eat?</h2>
-<form class="create-form">
+<h2>Add a Burger!</h2>
+<form class="create-form" action="/" method="POST">
 
   <div class="form-group">
-    <label for="ca">burger Name:</label>
+    <label for="ca">Burger Name:</label>
     <input type="text" id="ca" name="name">
   </div>
 
