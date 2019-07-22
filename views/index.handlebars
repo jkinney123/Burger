@@ -1,37 +1,93 @@
-<h2>Un-eaten Burgers!</h2>
+<div class="container">
 
-<ul>
-  {{#each burgers}}
-    {{#unless Devoured}}
-    <li>
-        {{> id}}. {{name}}
-    <form action = "/{{id}}?_method=PUT" method="POST">
-    <input type="hidden" name="Devoured" value="false">
+
+
+
+<div class="jumbotron">
+
+  <h2>Select your burger to eat!!</h2>
+
+  <panel>
+    <form class="create-form">
+      <div class="form group">
+        <label for="newburger">Order a burger!</label>
+
+        <select data-placeholder="" id="newburger" name="burger">
+
+          <option value="Cheeseburger">Cheesburger</option>
+          <option value="Hamburger">Hamburger</option>
+          <option value="Veggieburger">Veggieburger</option>
+          <option value="Juicy-Lucy">Juicy-Lucy</option>
+          <option value="Beanburger">Beanburger</option>
+          <option value="Avocadoburger">Avocadoburger</option>
+        </select>
+        <button type="submit" class="btn btn-success" id="addburger">
+          <span class="fa"></span>
+        </button>
+
+
+
+      </div>
+
     </form>
-    </li>
-      
-    {{/unless}}
-  {{/each}}
-</ul>
 
-<h2>Devoured Burgers!</h2>
 
-<ul>
-  {{#each burgers}}
-    {{#if Devoured}}
-      <li></li>{{id}}. {{name}}</li>
-    {{/if}}
-  {{/each}}
-</ul>
+  </panel>
 
-<h2>Add a Burger!</h2>
-<form class="create-form" action="/" method="POST">
+</div>
 
-  <div class="form-group">
-    <label for="ca">Burger Name:</label>
-    <input type="text" id="ca" name="name">
+  <div class="row">
+    <div class="panel panel-default">
+      <div class="panel-heading" id="leftside">Order burgers</div>
+      <div class="panel-body">
+
+        <ul>
+          {{#each burgers}}
+          {{#unless Devoured}}
+     
+            <span>{{ this.id}} - {{this.burger_name}}</span>
+            <button type="button" class="eatburger btn" id="eatbutton" data-id="{{this.id}}"
+              data-newDevoured="{{Devour}}"><span class="fa"></span></button>
+        
+
+          {{/unless}}
+          {{/each}}
+        </ul>
+
+
+
+      </div>
+
+    </div>
   </div>
 
-  <button type="submit">Add burger</button>
-</form>
+  <div class="row">
+    <div class="panel panel-default">
+      <div class="panel-heading" id="rightside">Burger ready for pickup</div>
+      <div class="panel-body">
+        <ul>
+          {{#each burgers}}
+          {{#if Devoured}}
+          <span>{{ this.id}} - {{this.burger_name}}</span>
+           <button type="button" class="trashburger btn" id="trashbutton" data-id="{{this.id}}"
+              data-newDevoured="{{Devour}}"><span class="fa"></span></button>
 
+          {{/unless}}
+          {{/each}}
+        </ul>
+
+
+
+
+      </div>
+
+
+
+    </div>
+
+
+
+  </div>
+
+
+  
